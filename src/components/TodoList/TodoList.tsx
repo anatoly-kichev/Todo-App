@@ -1,8 +1,22 @@
 import React from 'react';
-import styles from './Title.module.css';
+import { TodoItem } from '..';
+import { TaskModel } from '../../types/TaskModel';
+import styles from './TodoList.module.css';
 
-export const TodoList: React.FC = () => {
+interface TodoListProps {
+  tasksList: TaskModel[],
+}
+
+export const TodoList = ({ tasksList }: TodoListProps) => {
   return (
-    <></>
+    <ul className={styles.todoList}>
+      {tasksList.map(task =>
+        <TodoItem
+          key={task.id}
+          taskText={task.taskText}
+          isCompleted={task.isCompleted}
+        />
+      )}
+    </ul>
   );
 };
