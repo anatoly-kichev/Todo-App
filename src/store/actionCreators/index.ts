@@ -1,3 +1,4 @@
+import { FilterType } from './../../types/FilterType';
 import { Actions, ActionType } from '../../types/ActionType';
 
 export const addTaskAction = (
@@ -28,5 +29,14 @@ export const completeTaskAction = (
   type: Actions.COMPLETE_TASK,
   payload: {
     id
+  }
+});
+
+export const changeFilterAction = (
+  activeFilter: FilterType
+): ActionType => ({
+  type: Actions.CHANGE_FILTER,
+  payload: {
+    activeFilter
   }
 });

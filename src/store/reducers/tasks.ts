@@ -5,7 +5,8 @@ import { GlobalState } from '../../types/GlobalState';
 export const tasks = (state: GlobalState = initialState, action: ActionType): GlobalState => {
   if (action.type === Actions.ADD_TASK) {
     return {
-      tasks: [...state.tasks, action.payload]
+      tasks: [...state.tasks, action.payload],
+      activeFilter: state.activeFilter
     };
   } else if (action.type === Actions.COMPLETE_TASK) {
     return {
@@ -14,11 +15,13 @@ export const tasks = (state: GlobalState = initialState, action: ActionType): Gl
           task.isCompleted = !task.isCompleted;
         }
         return task;
-      })
+      }),
+      activeFilter: state.activeFilter
     };
   } else if (action.type === Actions.REMOVE_TASK) {
     return {
-      tasks: [...state.tasks].filter(task => task.id !== action.payload.id)
+      tasks: [...state.tasks].filter(task => task.id !== action.payload.id),
+      activeFilter: state.activeFilter
     };
   } else {
     return state;

@@ -1,9 +1,11 @@
+import { FilterType } from './FilterType';
 import { TaskType } from './TaskType';
 
 export const enum Actions {
   ADD_TASK = 'ADD_TASK',
   REMOVE_TASK = 'REMOVE_TASK',
-  COMPLETE_TASK = 'COMPLETE_TASK'
+  COMPLETE_TASK = 'COMPLETE_TASK',
+  CHANGE_FILTER = 'CHANGE_FILTER'
 }
 
 interface AddTaskAction {
@@ -21,4 +23,11 @@ interface CompleteTask {
   payload: { id: string }
 }
 
-export type ActionType = AddTaskAction | RemoveTask | CompleteTask;
+interface ChangeFilter {
+  type: Actions.CHANGE_FILTER,
+  payload: {
+    activeFilter: FilterType
+  }
+}
+
+export type ActionType = AddTaskAction | RemoveTask | CompleteTask | ChangeFilter;

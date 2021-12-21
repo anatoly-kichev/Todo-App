@@ -1,16 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { TodoInput, TodoList } from '../../components';
+import { TodoFooter, TodoInput, TodoList } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addTaskAction } from '../../store/actionCreators';
+import { FilterType } from '../../types/FilterType';
+import { TaskType } from '../../types/TaskType';
 import styles from './Todo.module.css';
 
 export const Todo: React.FC = () => {
   const [inputText, setInputText] = useState<string>('');
   const tasks = useAppSelector(state => state.tasks.tasks);
+  const filter = useAppSelector(state => state.filter.activeFilter);
   const dispatch = useAppDispatch();
-
-  const isTasksExist = tasks && tasks.length > 0;
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInputText(event.target.value);
@@ -23,10 +24,25 @@ export const Todo: React.FC = () => {
     }
   };
 
+  const filterTasks = (tasks: TaskType[], activeFilter: FilterType): TaskType[] => {
+    if (activeFilter === 'active') {
+      return tasks.filter(task => !task.isCompleted);
+    } else if (activeFilter === 'completed') {
+      return tasks.filter(task => task.isCompleted);
+    } else {
+      return tasks;
+    }
+  };
+
+  const isTasksExist = tasks && tasks.length > 0;
+  const filteredTasks: TaskType[] = filterTasks(tasks, filter);
+  const tasksCounter: number = filterTasks(tasks, 'active').length;
+
   return (
     <div className={styles.todoContainer}>
       <TodoInput value={inputText} onChange={handleInputChange} onKeyPress={addTask} />
-      {isTasksExist && <TodoList tasksList={tasks} />}
+      {isTasksExist && <TodoList tasksList={filteredTasks} />}
+      {isTasksExist && <TodoFooter tasksCounter={tasksCounter} activeFilter={filter} />}
     </div>
   );
 };
