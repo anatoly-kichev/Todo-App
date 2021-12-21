@@ -1,0 +1,30 @@
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  border-bottom: 1px solid lightgray;
+  font-size: 24px;
+  color: #696969;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.completedIcon,
+.completed {
+  color: darkgray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.trashIcon {
+  color: palevioletred
+}
+
+.trashIcon:hover {
+  color: tomato;
+}

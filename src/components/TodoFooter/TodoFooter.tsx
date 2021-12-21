@@ -4,7 +4,6 @@ import { changeFilterAction } from '../../store/actionCreators';
 import { FilterType } from '../../types/FilterType';
 import cn from 'classnames';
 import styles from './TodoFooter.module.css';
-import { store } from '../../store';
 
 interface TodoFooterProps {
   tasksCounter: number,
@@ -37,11 +36,11 @@ export const TodoFooter = ({ tasksCounter, activeFilter }: TodoFooterProps) => {
   return (
     <div className={styles.todoFooter}>
       <span className={styles.tasksCounter}>{`${tasksCounter} tasks left`}</span>
-      <div className='buttonGroup'>
+      <div className={styles.buttonGroup}>
         {filterButtons.map(button => (
           <button
             key={button.id}
-            onClick={() => { dispatch(changeFilterAction(button.id)); console.log(store.getState()); }}
+            onClick={() => dispatch(changeFilterAction(button.id))}
             className={cn(styles.filterButton, {
               [styles.filterButtonActive]: button.id === activeFilter
             })}

@@ -1,0 +1,9 @@
+.todoInput {
+  display: block;
+  width: 720px;
+  height: 56px;
+  box-sizing: border-box;
+  margin-top: 40px;
+  padding: 8px;
+  font-size: 24px;
+}
