@@ -3,6 +3,8 @@ import styles from './TodoFooter.module.css';
 
 export const TodoFooter: React.FC = () => {
   return (
-    <></>
+    <div className={styles.todoFooter}>
+
+    </div>
   );
 };
