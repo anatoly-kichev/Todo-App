@@ -3,8 +3,8 @@ import styles from './TodoInput.module.css';
 
 interface TodoInputProps {
   value: string,
-  onChange: () => void,
-  onKeyPress: () => void
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+  onKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
 export const TodoInput = ({ value, onChange, onKeyPress }: TodoInputProps) => {

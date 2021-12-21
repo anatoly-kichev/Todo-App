@@ -1,10 +1,10 @@
 import React from 'react';
 import { TodoItem } from '..';
-import { TaskModel } from '../../types/TaskModel';
+import { TaskType } from '../../types/TaskType';
 import styles from './TodoList.module.css';
 
 interface TodoListProps {
-  tasksList: TaskModel[],
+  tasksList: TaskType[],
 }
 
 export const TodoList = ({ tasksList }: TodoListProps) => {
@@ -13,8 +13,7 @@ export const TodoList = ({ tasksList }: TodoListProps) => {
       {tasksList.map(task =>
         <TodoItem
           key={task.id}
-          taskText={task.taskText}
-          isCompleted={task.isCompleted}
+          taskItem={task}
         />
       )}
     </ul>
