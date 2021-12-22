@@ -9,12 +9,14 @@ interface TodoInputProps {
 
 export const TodoInput = ({ value, onChange, onKeyPress }: TodoInputProps) => {
   return (
-    <input
-      className={styles.todoInput}
-      placeholder="Add new task"
-      value={value}
-      onChange={onChange}
-      onKeyPress={onKeyPress}
-    ></input>
+    <div className={styles.todoInputWrapper}>
+      <input
+        className={styles.todoInput}
+        placeholder="Add new task"
+        value={value}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      ></input>
+    </div>
   );
 };
