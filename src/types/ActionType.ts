@@ -1,5 +1,4 @@
-import { FilterType } from './FilterType';
-import { TaskType } from './TaskType';
+import { FilterType, TaskType } from './';
 
 export const enum Actions {
   ADD_TASK = 'ADD_TASK',

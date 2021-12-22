@@ -1,5 +1,4 @@
-import { FilterType } from './../../types/FilterType';
-import { Actions, ActionType } from '../../types/ActionType';
+import { Actions, ActionType, FilterType } from '../../types';
 
 export const addTaskAction = (
   id: string,

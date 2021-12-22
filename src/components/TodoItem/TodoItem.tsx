@@ -1,8 +1,7 @@
-import React from 'react';
 import styles from './TodoItem.module.css';
 import { faCheckCircle, faCircle, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { TaskType } from '../../types/TaskType';
+import { TaskType } from '../../types';
 import { useAppDispatch } from '../../hooks';
 import { completeTaskAction, removeTaskAction } from '../../store/actionCreators';
 import cn from 'classnames';

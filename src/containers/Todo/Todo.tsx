@@ -3,14 +3,13 @@ import { useState } from 'react';
 import { TodoFooter, TodoInput, TodoList } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addTaskAction } from '../../store/actionCreators';
-import { FilterType } from '../../types/FilterType';
-import { TaskType } from '../../types/TaskType';
+import { FilterType, TaskType } from '../../types';
 import styles from './Todo.module.css';
 
 export const Todo: React.FC = () => {
   const [inputText, setInputText] = useState<string>('');
-  const tasks = useAppSelector(state => state.tasks.tasks);
-  const filter = useAppSelector(state => state.filter.activeFilter);
+  const tasks: TaskType[] = useAppSelector(state => state.tasks);
+  const filter: FilterType = useAppSelector(state => state.filter);
   const dispatch = useAppDispatch();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {

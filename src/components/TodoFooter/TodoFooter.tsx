@@ -1,7 +1,6 @@
-import React from 'react';
 import { useAppDispatch } from '../../hooks';
 import { changeFilterAction } from '../../store/actionCreators';
-import { FilterType } from '../../types/FilterType';
+import { FilterType } from '../../types';
 import cn from 'classnames';
 import styles from './TodoFooter.module.css';
 

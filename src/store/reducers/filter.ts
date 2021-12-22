@@ -1,13 +1,9 @@
-import { Actions, ActionType } from '../../types/ActionType';
-import { GlobalState } from '../../types/GlobalState';
+import { Actions, ActionType, FilterType } from '../../types';
 import { initialState } from '../initialState';
 
-export const filter = (state: GlobalState = initialState, action: ActionType): GlobalState => {
+export const filter = (state: FilterType = initialState.activeFilter, action: ActionType): FilterType => {
   if (action.type === Actions.CHANGE_FILTER) {
-    return {
-      tasks: state.tasks,
-      activeFilter: action.payload.activeFilter
-    };
+    return action.payload.activeFilter;
   } else {
     return state;
   }

@@ -1,6 +1,5 @@
-import React from 'react';
 import { TodoItem } from '..';
-import { TaskType } from '../../types/TaskType';
+import { TaskType } from '../../types';
 import styles from './TodoList.module.css';
 
 interface TodoListProps {
