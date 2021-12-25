@@ -7,9 +7,9 @@ import { FilterType, TaskType } from '../../types';
 import styles from './Todo.module.css';
 
 export const Todo: React.FC = () => {
-  const [inputText, setInputText] = useState<string>('');
-  const tasks: TaskType[] = useAppSelector(state => state.tasks);
-  const filter: FilterType = useAppSelector(state => state.filter);
+  const [inputText, setInputText] = useState('');
+  const tasks = useAppSelector(state => state.tasks);
+  const filter = useAppSelector(state => state.filter);
   const dispatch = useAppDispatch();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -34,8 +34,8 @@ export const Todo: React.FC = () => {
   };
 
   const isTasksExist = tasks && tasks.length > 0;
-  const filteredTasks: TaskType[] = filterTasks(tasks, filter);
-  const tasksCounter: number = filterTasks(tasks, 'active').length;
+  const filteredTasks = filterTasks(tasks, filter);
+  const tasksCounter = filterTasks(tasks, 'active').length;
 
   return (
     <div className={styles.todoContainer}>

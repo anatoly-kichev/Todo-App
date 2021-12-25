@@ -12,21 +12,21 @@ interface AddTaskAction {
   payload: TaskType
 }
 
-interface RemoveTask {
+interface RemoveTaskAction {
   type: Actions.REMOVE_TASK,
   payload: { id: string }
 }
 
-interface CompleteTask {
+interface CompleteTaskAction {
   type: Actions.COMPLETE_TASK,
   payload: { id: string }
 }
 
-interface ChangeFilter {
+interface ChangeFilterAction {
   type: Actions.CHANGE_FILTER,
   payload: {
     activeFilter: FilterType
   }
 }
 
-export type ActionType = AddTaskAction | RemoveTask | CompleteTask | ChangeFilter;
+export type ActionType = AddTaskAction | RemoveTaskAction | CompleteTaskAction | ChangeFilterAction;
